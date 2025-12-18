@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Edit</title>
+<style>
+body{
+        font-family: Arial, Helvetica, sans-serif;
+        background: grey;
+    }
+    .container{
+        width: 80%;
+        margin:40px auto;
+        background: grey;
+        padding:30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px black;
+    }
+    h2{
+        text-align: center;
+        color: #3333;
+        margin-bottom: 30px;
+    }
+    label{
+    display:block;
+    margin-bottom:8px;
+    color:green;
+    
+    }
+    input[type="text"],input[type="number"]
+    {
+    width:100%;
+    padding:8px;
+    margin-button:18px;
+    border:1px solid red;
+    border-radius:4px;
+    }
+    .btn-submit{
+    width:100%;
+    padding:10px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:none;
+    cursor:pointer;
+    font-size:16px;
+    }
+    .btn-submit:hover{
+    background:pink;
+    }
+</style>
+</head>
+<body>
+<body>
+<div class="form-container">
+<h2>Edit Movie</h2>
+<form action="/edit" method="post">
+<label for="name">Name</label>
+<input type="hidden"  name="id" th:value="${movie.id}">
+<input type="text" id="name" name="name" th:value="${movie.name}" required>
+<label for="image">Image Link</label>
+<input type="text" id="image" name="imageLink" th:value="${movie.imageLink}" required>
+<label for="genre">Genre</label>
+<input type="text" id="genre" name="genre" th:value="${movie.genre}" required>
+<label for="rating">Rating</label>
+<input type="number" step="0.1" id="rating" name="rating" th:value="${movie.rating}" required>
+<label for="actor">Actor</label>
+<input type="text" id="actor" name="actor" th:value="${movie.actor}" required>
+<button type="submit" class="btn-submit">Update Movie</button></a>
+</form>
+<br><a href="/"><button>Back</button></a>
+</div>
+
+</body>
+</html>

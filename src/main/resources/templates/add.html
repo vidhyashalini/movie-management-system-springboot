@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Movies</title>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background: grey;
+    }
+    .form-container{
+        width: 80%;
+        margin:40px auto;
+        background: grey;
+        padding:30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px black;
+    }
+    h1{
+        text-align: center;
+        color: #3333;
+        margin-bottom: 30px;
+    }
+    label{
+    display:block;
+    margin-bottom:8px;
+    color:green;
+    
+    }
+    input[type="text"],input[type="number"]
+    {
+    width:100%;
+    padding:8px;
+    margin-button:18px;
+    border:1px solid red;
+    border-radius:4px;
+    }
+    .btn-submit{
+    width:100%;
+    padding:10px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:none;
+    cursor:pointer;
+    font-size:16px;
+    }
+    .btn-submit:hover{
+    background:pink;
+    }
+</style>
+</head>
+<body>
+<div class="form-container">
+<h2>ADD Movie</h2>
+<form action="/add" method="post">
+<label for="name">Name</label>
+<input type="text" id="name" name="name" required>
+<label for="image">Image</label>
+<input type="text" id="image" name="imageLink" required>
+<label for="genre">Genre</label>
+<input type="text" id="genre" name="genre" required>
+<label for="rating">Rating</label>
+<input type="number" step="1" id="rating" name="rating" required>
+<label for="actor">Actor</label>
+<input type="text" id="actor" name="actor" required>
+<br><br>
+<button type="submit" class="btn-submit">Add movie</button>
+</form>
+<br>
+<a href="/"><button>Back</button></a>
+</div>
+</body>
+</html>

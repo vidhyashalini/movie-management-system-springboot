@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+    body{
+        font-family: Arial, Helvetica, sans-serif;
+        background: grey;
+    }
+    .container{
+        width: 80%;
+        margin:40px auto;
+        background: grey;
+        padding:30px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px black;
+    }
+    h1{
+        text-align: center;
+        color: red;
+        margin-bottom: 30px;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    th,td{
+        padding:12px 10px;
+        border-bottom: 1px solid #dddd;
+        text-align: center;
+    }
+    th{
+        background: blueviolet;
+        color: white;
+    }
+    th:hover{
+        background: #f1f1f1;
+    }
+    .btn{
+        padding:6px 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 0 2px;
+    }
+    .btn-edit{
+        background: yellowgreen;
+        color:#ffff;
+    }
+     .btn-delete{
+        background: red;
+        color:#ffff;
+    }
+.btn-add{
+    background: white;
+    color:grey;
+    float:right;
+    margin-top: 10px;
+}
+img{
+    max-width: 60px;
+    border-radius: 4px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Movie CRUD</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Genre</th>
+                <th>Rating</th>
+                <th>Actor</th>
+                <th>Actions</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr th:each="movie:${movies}">
+            
+            
+                <td th:text="${movie.name}"></td>
+                <td><img  alt="Incep" height="100px" width="100px" th:src="${movie.imageLink}"></td>
+                <td th:text="${movie.genre}"></td>
+                <td th:text="${movie.actor}"></td>
+                <td th:text="${movie.rating}"></td>
+                <td>
+                   <a th:href="'/edit/'+${movie.id}"> <button class="btn btn-edit">Edit</button></a>
+                    <a th:href="'/delete/'+${movie.id}"> <button class="btn btn-delete">Delete</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/add"><button class="btn btn-add">Add movie</button></a>
+    <script th:if="${message}">alert("[[${message}]]")</script>
+</div>
+</body>
+</html>
